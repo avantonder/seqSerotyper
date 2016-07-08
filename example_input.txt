@@ -1,0 +1,14 @@
+id	filePath
+ISOLATE_111518_A0	/home/user/WGS_sequences/ISOLATE_111518_A0_contigs.fa
+ISOLATE_111494_A0	/home/user/WGS_sequences/ISOLATE_111494_A0_contigs.fa
+ISOLATE_103826_A0	/home/user/WGS_sequences/ISOLATE_103826_A0_contigs.fa
+ISOLATE_82514_A0	/home/user/WGS_sequences/ISOLATE_82514_A0_contigs.fa
+ISOLATE_82509_A0	/home/user/WGS_sequences/ISOLATE_82509_A0_contigs.fa
+ISOLATE_82465_A0	/home/user/WGS_sequences/ISOLATE_82465_A0_contigs.fa
+ISOLATE_82463_A0	/home/user/WGS_sequences/ISOLATE_82463_A0_contigs.fa
+ISOLATE_44871_A0	/home/user/WGS_sequences/ISOLATE_44871_A0_contigs.fa
+ISOLATE_32949_A0	/home/user/WGS_sequences/ISOLATE_32949_A0_contigs.fa
+ISOLATE_31975_A0	/home/user/WGS_sequences/ISOLATE_31975_A0_contigs.fa
+ISOLATE_31973_A0	/home/user/WGS_sequences/ISOLATE_31973_A0_contigs.fa
+ERR047121_A86720	/home/user/WGS_sequences/ERR047121_A86720_contigs.fa
+ERR124291_A47999	/home/user/WGS_sequences/ERR124291_A47999.fa
