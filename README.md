@@ -55,8 +55,6 @@ To install the seqinr library:
 
   and select a mirror from the dialogue window that pops up.  The library should then install and you can close R by typing quit()
 
-From source:
-
   If install.packages doesn't work due to an issue with the version of R you have, you can install the library from source:
 
   Download the library source file from:
