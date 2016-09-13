@@ -138,7 +138,7 @@ extractInputArgument = function(argName = NULL, commandLineInputs = NULL,
 ###########################################################################
 
 RunBlat <- function(querySeqs, refNuc, blatOutput) {
-  system2("blat",args=c("-t=dna",querySeqs,"-q=dna", refNuc, blatOutput,"out=blast"))
+  system2(paste(blatPath),args=c("-t=dna",querySeqs,"-q=dna", refNuc, blatOutput,"out=blast"))
 }
 
 ###########################################################################
@@ -149,7 +149,7 @@ RunBlat <- function(querySeqs, refNuc, blatOutput) {
 ###########################################################################
 
 RunBlatBlast8 <- function(querySeqs, refNuc, blatOutput) {
-  system2("blat",args=c("-t=dna",querySeqs,"-q=dna", refNuc, blatOutput,"out=blast8"))
+  system2(paste(blatPath),args=c("-t=dna",querySeqs,"-q=dna", refNuc, blatOutput,"out=blast8"))
 }
 
 #############################################################################
@@ -160,7 +160,7 @@ RunBlatBlast8 <- function(querySeqs, refNuc, blatOutput) {
 #############################################################################
   
 RunBlastall <- function(BARef, BAquerySeqs, blastAllOut) {
-  system2("blastall",args=c("-p blastn", "-d", BARef, "-i", BAquerySeqs,"-m 8","-o",blastAllOut))
+  system2(paste(blastallPath),args=c("-p blastn", "-d", BARef, "-i", BAquerySeqs,"-m 8","-o",blastAllOut))
 }
 
 ##########################################################################
@@ -170,7 +170,7 @@ RunBlastall <- function(BARef, BAquerySeqs, blastAllOut) {
 ##########################################################################
 
 runMview <- function(mviewIn, mviewOut) {
-  system2("mview",args=c("-in","blast",mviewIn,"-out","pearson", "-top", "1", ">",mviewOut))
+  system2(paste(mviewPath),args=c("-in","blast",mviewIn,"-out","pearson", "-top", "1", ">",mviewOut))
 }
 
 #############################################################################
@@ -190,7 +190,7 @@ runSplitMultifasta <- function(multifasta, outDir) {
 ##############################################################################
 
 runTranseq <- function(TranseqIn, TranseqOut) {
-  system2("transeq",args=c("-sequence", TranseqIn, "-outseq", TranseqOut))
+  system2(paste(transeqPath),args=c("-sequence", TranseqIn, "-outseq", TranseqOut))
 }
 
 ###############################################
@@ -254,6 +254,10 @@ assign7AFref <- paste(srcDir, "7A_7F_wcwD_nuc.fas", sep="")
 assign9AVref <- paste(srcDir, "9A_9V_wcjE_nuc.fas", sep="")
 mainRefPath <- paste(srcDir, "Pneumo_serotypes.fasta", sep="")
 splitMultifastapath <- paste(srcDir, "split_multifasta.pl", sep="")
+blatPath <- paste(srcDir, "blat", sep="")
+blastallPath <- paste(srcDir, "blastall", sep="")
+transeqPath <- paste(srcDir, "transeq", sep="")
+mviewPath <- paste(srcDir, "mview", sep="")
 
 ##############################
 ## Check reference files exist
@@ -261,7 +265,7 @@ splitMultifastapath <- paste(srcDir, "split_multifasta.pl", sep="")
 
 checkExist(c(assign11Eref, assign11ADref, assign18BCref, assign20ABref, assign22AFref, assign25AFref, assign33AFref,
           assign37ref, assign6ABref, assign6CEGref, assign6CEGref, assign6Fref, assign6CDref, assign7AFref, assign9AVref,
-          mainRefPath, splitMultifastapath))
+          mainRefPath, splitMultifastapath, blatPath, blastallPath, transeqPath, mviewPath))
 
 ############################################################
 ## Read in data file and sort alphabetically based on the id
@@ -424,7 +428,7 @@ if (nrow(sero6Results)>0) {
       runSplitMultifasta(multifasta = listSero6CDFasta[[i]], outDir = "6CD")       
     }
 
-    system2("rm","6CD/query_wzy.fsa")
+    system2("rm","6CD/wzy.fsa")
     fsaSero6CDListT <- list.files("6CD",full.names=TRUE)
     fsaSero6CDListF <- list.files("6CD",full.names=FALSE)
     pepSero6CD <- paste(fsaSero6CDListF,".pep",sep="")
@@ -500,7 +504,7 @@ if (nrow(sero6Results)>0) {
       runSplitMultifasta(multifasta = listSero6AGFasta[[i]], outDir = "6AG") 
     }
 
-    system2("rm","6AG/query_wzy.fsa")
+    system2("rm","6AG/wzy.fsa")
     fsaSero6AGListT <- list.files("6AG",full.names=TRUE)
     fsaSero6AGListF <- list.files("6AG",full.names=FALSE)
     pepSero6AG <- paste(fsaSero6AGListF,".6AG.pep",sep="")
@@ -589,7 +593,7 @@ if (nrow(sero6Results)>0) {
         runSplitMultifasta(multifasta = listSero6AFfastaIn[[i]], outDir = "6AF") 
       }
 
-      system2("rm","6AF/query_6A_wciNalpha.fsa")
+      system2("rm","6AF/6A_wciNalpha.fsa")
       fsaSero6AFlistT <- list.files("6AF",full.names=TRUE)
       fsaSero6AFlistF <- list.files("6AF",full.names=FALSE)
       pepSero6AF <- paste(fsaSero6AFlistF,".6AF.pep",sep="")
@@ -666,7 +670,7 @@ if (nrow(sero6Results)>0) {
         runSplitMultifasta(multifasta = listSero6ABfasta[[i]], outDir = "6AB") 
       }
 
-      system2("rm","6AB/query_wciP.fsa")
+      system2("rm","6AB/wciP.fsa")
       fsaSero6ABlistT <- list.files("6AB",full.names=TRUE)
       fsaSero6ABlistF <- list.files("6AB",full.names=FALSE)
       pepSero6AB <- paste(fsaSero6ABlistF,".6AB.pep",sep="")
@@ -851,7 +855,7 @@ if (nrow(sero11Results)>0) {
     runSplitMultifasta(multifasta = listSero11ADfasta[[i]], outDir = "11AD")
   }
 
-  system2("rm","11AD/query_11A_wcrL.fsa")
+  system2("rm","11AD/11A_wcrL.fsa")
   fsaSero11ADlistT <- list.files("11AD",full.names=TRUE)
   fsaSero11ADlistF <- list.files("11AD",full.names=FALSE)
   pepSero11AD <- paste(fsaSero11ADlistF,".11AD.pep",sep="")

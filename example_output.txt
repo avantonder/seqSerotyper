@@ -1,0 +1,3 @@
+id	Serotype
+ERR045419_A150774_contigs.fa	11A
+ERR048213_A153445	6C
