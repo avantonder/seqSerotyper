@@ -69,7 +69,7 @@ From source:
 seqSerotyper.R comes bundled with pre-compiled 64 bit executables for blat, blastall, mview and transeq.
 
 #Running seqSerotyper.R
-Usage: Rscript seqSerotyper.R -dataFile <input file> -srcDir <path>
+    Usage: Rscript seqSerotyper.R -dataFile <input file> -srcDir <path>
 
   Options:
   
@@ -78,7 +78,7 @@ Usage: Rscript seqSerotyper.R -dataFile <input file> -srcDir <path>
     -srcDir:	The path of the directory that contains the reference files and related scripts
 
 
-  e.g. Rscript seqSerotyper.R -dataFile pneumo_fasta_ids.txt -srcDir /home/user/Software/seqSerotyper/bin
+    e.g. Rscript seqSerotyper.R -dataFile pneumo_fasta_ids.txt -srcDir /home/user/Software/seqSerotyper/bin
 
 #Input file
 
@@ -86,6 +86,7 @@ The file containing the sample ids and file paths to the pneumococcal fasta file
 be in the following tab-separated format:
 
   id	filePath
+  
   ERR065287_A46670	/media/data/WGS_sequences/ERR065287_A46670.fa
 
 #Output file
@@ -94,4 +95,5 @@ The script will create a file called Predicted_serotypes.txt in the seqSerotyper
 The file lists the strain ids and associated serotypes:
 
   id  Serotype
+  
   ERR065287_A46670  19A
