@@ -30,20 +30,42 @@ If you have git installed:
 
 git clone --recursive https://github.com/avantonder/seqSerotyper/
 
-Click on the
+If not, click on the Clone or Download button above and select Download zip.  Move the file to your desired location and unzip the file and then cd into the seqSerotyper directory:
+
+
 
 #Dependencies
-R
+R and Perl
+
+R can be downloaded from:
+
+https://www.r-project.org/
 
 seqinr (R library)
 
-transeq (BioLinux)
+To install the seqinr library:
 
-mview (BioLinux)
+From within R:
 
-blat (Biolinux)
+If you have root access type sudo R in a terminal.  Once R loads type:
 
-blastall (Biolinux)
+install.packages("seqinr")
+
+and select a mirror from the dialogue window that pops up.  The library should then install and you can close R by typing quit()
+
+From source:
+
+If install.packages doesn't work due to an issue with the version of R you have, you can install the library from source:
+
+Download the library source file from:
+
+https://cran.r-project.org/web/packages/seqinr/index.html
+
+In a terminal cd into the directory you downloaded the source file to and type the following:
+
+sudo R CMD INSTALL seqinr_3.3-1.tar.gz
+
+seqSerotyper.R comes bundled with pre-compiled 64 bit executables for blat, blastall, mview and transeq.
 
 #Running seqSerotyper.R
 Usage: Rscript seqSerotyper.R -dataFile <input file> -srcDir <path>
