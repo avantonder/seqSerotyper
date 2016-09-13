@@ -47,6 +47,12 @@ help <- paste(
 system2("mkdir", "tmp")
 seqSerotyperDir <- getwd()
 
+###################################
+## Make executable files executable
+###################################
+
+system2("chmod",args=c("+x","bin/blat","bin/mview","bin/blastall","bin/transeq"))
+
 ######################  
 ## Load seqinr library
 ######################
