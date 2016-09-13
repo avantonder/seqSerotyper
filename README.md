@@ -32,17 +32,18 @@ If you have git installed:
 
 If not, click on the Clone or Download button above and select Download zip.  Move the file to your desired location and unzip the file and then cd into the seqSerotyper directory:
 
-  unzip seqSerotyper-master.zip
-  cd seqSerotyper-master
+    unzip seqSerotyper-master.zip
+  
+    cd seqSerotyper-master
 
 #Dependencies
-R and Perl
+##R and Perl
 
 R can be downloaded from:
 
   https://www.r-project.org/
 
-seqinr (R library)
+##seqinr (R library)
 
 To install the seqinr library:
 
